@@ -1,0 +1,5 @@
+[run]
+include = jovian_replication_manager/*
+omit = *migrations*, *tests*
+plugins =
+    django_coverage_plugin

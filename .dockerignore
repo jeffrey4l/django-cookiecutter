@@ -1,0 +1,6 @@
+tags
+cscope.out
+db.sqlite3
+.git
+*.pyc
+__pycache__

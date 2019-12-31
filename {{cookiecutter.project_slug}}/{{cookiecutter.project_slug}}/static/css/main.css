@@ -1,0 +1,33 @@
+.alert-debug {
+  color: black;
+  background-color: white;
+  border-color: #d6e9c6;
+}
+
+.alert-error {
+  color: #b94a48;
+  background-color: #f2dede;
+  border-color: #eed3d7;
+}
+
+div.dataTables-info {
+    padding-top: 0.85em;
+}
+
+dl.dl-list dt{
+  float: left;
+  width: 180px;
+  clear: left;
+  text-align: right;
+}
+
+dl.dl-list dd{
+  float: left;
+  margin-left: 20px;
+  display: block;
+}
+
+dl.dl-list {
+
+  width: 100%;
+}

@@ -1,0 +1,120 @@
+{% raw %}{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title> {% block title %} {% endblock %} - Jovian Replication Manager</title>
+  {% include "_scripts.html" %}
+</head>
+<body class="hold-transition sidebar-mini layout-fixed layout-navbar-fixed">
+<div class="wrapper">
+  <!-- Navbar -->
+  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+    <!-- Left navbar links -->
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" data-widget="pushmenu" href="#">
+          <i class="fa fa-bars"></i>
+        </a>
+      </li>
+      <li class="nav-item d-none d-sm-inline-block">
+        <a href="/" class="nav-link">Home</a>
+      </li>
+    </ul>
+
+    <!-- SEARCH FORM -->
+    <form class="form-inline ml-3">
+      <div class="input-group input-group-sm">
+        <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+        <div class="input-group-append">
+          <button class="btn btn-navbar" type="submit">
+            <i class="fa fa-search"></i>
+          </button>
+        </div>
+      </div>
+    </form>
+  </nav>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+    <!-- Brand Logo -->
+    <a href="/" class="brand-link">
+      <span class="brand-text font-weight-light">Jovian Manager</span>
+    </a>
+
+    <!-- Sidebar -->
+    <div class="sidebar">
+      <!-- Sidebar Menu -->
+      <nav class="mt-2">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <li class="nav-item">
+            <a href="{% url "volume:volume_list" %}" class="nav-link{% if view.sidebar == "volume" %} active{% endif %}">
+              <i class="nav-icon fa fa-th"></i>
+              <p> Volumes </p>
+            </a>
+          </li>
+          <li class="nav-item active">
+            <a href="{% url "volume:backup_policy_list" %}" class="nav-link{% if view.sidebar == "backup_policy" %} active{% endif %}">
+              <i class="nav-icon fa fa-cog"></i>
+              <p> BackupPolicy </p>
+            </a>
+          </li>
+          <li class="nav-item active">
+            <a href="{% url "volume:cluster_list" %}" class="nav-link{% if view.sidebar == "cluster" %} active{% endif %}">
+              <i class="nav-icon fa fa-cog"></i>
+              <p> Cluster </p>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- /.sidebar-menu -->
+    </div>
+    <!-- /.sidebar -->
+  </aside>
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="/">Home</a></li>
+              {% block breadcrumb %}{% endblock %}
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <section class="content">
+      <div class="container-fluid">
+        {% if messages %}
+        <div class="row">
+          {% for message in messages %}
+          <div class="col-sm-12">
+            <div class="alert alert-{{ message.tags }} alert-dismissible">
+              <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+              {{ message }}
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+        {% endif %}
+        {% block content %} {% endblock %}
+      </div><!--/. container-fluid -->
+    </section>
+    <!-- /.content -->
+  </div>
+  <!-- /.content-wrapper -->
+
+</div>
+<!-- ./wrapper -->
+</body>
+</html>{% endraw %}

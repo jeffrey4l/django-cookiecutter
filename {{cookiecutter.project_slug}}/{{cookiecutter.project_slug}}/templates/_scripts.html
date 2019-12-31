@@ -1,0 +1,29 @@
+{% raw %}{% load staticfiles %}
+{% load compress %}
+
+{% if COMPRESS_ENABLED %}
+{% compress css %}
+<link rel="stylesheet" href="{% static "lib/bootstrap/css/bootstrap.css" %}" type="text/less">
+<link rel="stylesheet" href="{% static "lib/bootstrap_datepicker/datepicker3.css" %}" type="text/css">
+<link rel="stylesheet" href="{% static "css/main.css" %}" type="text/css">
+<link rel="stylesheet" href="{% static "lib/adminlte/css/adminlte.css" %}" type="text/css">
+{% endcompress %}
+{% else %}
+<link rel="stylesheet" href="{% static "lib/bootstrap/css/bootstrap.css" %}" type="text/css">
+<link rel="stylesheet" href="{% static "lib/bootstrap_datepicker/datepicker3.css" %}" type="text/css">
+<link rel="stylesheet" href="{% static "lib/font_awesome/css/font-awesome.css" %}" type="text/css">
+<link rel="stylesheet" href="{% static "css/main.css" %}" type="text/css">
+<link rel="stylesheet" href="{% static "lib/adminlte/css/adminlte.css" %}" type="text/css">
+<script src="{% static "lib/less/js/less.min.js" %}" type="text/javascript" charset='utf8'></script>
+{% endif %}
+
+{% compress js %}
+<script src="{% static "lib/jquery/jquery.js" %}" type="text/javascript" charset="utf-8"></script>
+<script src="{% static "lib/bootstrap/js/bootstrap.bundle.js" %}" type="text/javascript" charset="utf-8"></script>
+<script src="{% static "lib/adminlte/js/adminlte.js" %}" type="text/javascript" charset="utf-8"></script>
+<script src="{% static "lib/adminlte/js/demo.js" %}" type="text/javascript" charset="utf-8"></script>
+
+<script src="{% static "lib/bootstrap_datepicker/bootstrap-datepicker.js" %}" type="text/javascript" charset="utf-8"></script>
+<script src="{% static "js/main.js" %}" type="text/javascript" charset="utf-8"></script>
+{% endcompress %}
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">{% endraw %}
