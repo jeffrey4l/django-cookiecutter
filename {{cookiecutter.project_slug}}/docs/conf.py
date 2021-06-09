@@ -40,7 +40,7 @@ master_doc = "index"
 
 # General information about the project.
 project = "{{ cookiecutter.project_name }}"
-copyright = """2019, Jeffrey"""
+copyright = """2021, {{ cookiecutter.author_name }}"""
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -219,7 +219,7 @@ man_pages = [
         "index",
         "{{ cookiecutter.project_slug }}",
         "{{ cookiecutter.project_name }} Documentation",
-        ["""Jeffrey"""],
+        ["""{{ cookiecutter.author_name }}"""],
         1,
     )
 ]
@@ -238,7 +238,7 @@ texinfo_documents = [
         "index",
         "{{ cookiecutter.project_slug }}",
         "{{ cookiecutter.project_name }} Documentation",
-        """Jeffrey""",
+        """{{ cookiecutter.author_name }}""",
         "{{ cookiecutter.project_name }}",
         """Behold My Awesome Project!""",
         "Miscellaneous",

@@ -5,13 +5,8 @@ Base settings to build other settings files upon.
 import environ
 import os
 
-from xstatic.main import XStatic
-import xstatic.pkg.jquery
-import xstatic.pkg.bootstrap
-import xstatic.pkg.bootstrap_datepicker
-import xstatic.pkg.less
-import xstatic.pkg.font_awesome
 from django.contrib.messages import constants as message_constants
+
 
 ROOT_DIR = (
     environ.Path(__file__) - 3
@@ -83,7 +78,6 @@ THIRD_PARTY_APPS = [
 ]
 
 LOCAL_APPS = [
-    "{{ cookiecutter.project_slug }}.users.apps.UsersConfig",
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -138,17 +132,7 @@ MIDDLEWARE = [
 DATETIME_FORMAT = 'Y-m-d h:i:s'
 DATE_FORMAT = 'Y-m-d'
 
-def get_staticfiles_dirs():
-    return (
-        ('lib/jquery', XStatic(xstatic.pkg.jquery).base_dir),
-        ('lib/bootstrap', XStatic(xstatic.pkg.bootstrap).base_dir),
-        ('lib/font_awesome', XStatic(xstatic.pkg.font_awesome).base_dir),
-        ('lib/bootstrap_datepicker',
-         XStatic(xstatic.pkg.bootstrap_datepicker).base_dir),
-        ('lib/less', XStatic(xstatic.pkg.less).base_dir),
-    )
-
-STATICFILES_DIRS = (str(APPS_DIR.path("static")),) + get_staticfiles_dirs()
+STATICFILES_DIRS = (str(APPS_DIR.path("static")),)
 STATIC_ROOT = os.path.join(ROOT_DIR, 'statics')
 
 # STATIC
@@ -276,17 +260,14 @@ STATICFILES_FINDERS += ["compressor.finders.CompressorFinder"]
 # Your stuff...
 # ------------------------------------------------------------------------------
 
-OPENSTACK_AUTH_URL = 'https://cloud-dev-2.redactus.co.uk:5000'
-OPENSTACK_USERNAME = 'admin'
-OPENSTACK_PASSWORD = 'vycnORrZWCrjnX4cMUJA0PBRqmvO9KTJjVE0OEoE'
-OPENSTACK_PROJECT_NAME = 'admin'
-
 DATETIME_FORMAT = "Y-m-d H:i:s"
 DATE_FORMAT = "Y-m-d H:i:s"
 TIME_FORMAT = "Y-m-d H:i:s"
 
-MESSAGE_TAGS = {message_constants.DEBUG: 'debug',
-                message_constants.INFO: 'info',
-                message_constants.SUCCESS: 'success',
-                message_constants.WARNING: 'warning',
-                message_constants.ERROR: 'danger',}
+MESSAGE_TAGS = {
+    message_constants.DEBUG: 'debug',
+    message_constants.INFO: 'info',
+    message_constants.SUCCESS: 'success',
+    message_constants.WARNING: 'warning',
+    message_constants.ERROR: 'danger'
+}

@@ -1,2 +1,2 @@
 build:
-	docker build -t jrmanager .
+	docker build -t {{ cookiecutter.project_slug }} .
