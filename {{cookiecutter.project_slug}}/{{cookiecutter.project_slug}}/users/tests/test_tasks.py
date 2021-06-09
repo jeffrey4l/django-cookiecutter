@@ -2,8 +2,8 @@ import pytest
 from celery.result import EagerResult
 
 
-from jovian_replication_manager.users.tasks import get_users_count
-from jovian_replication_manager.users.tests.factories import UserFactory
+from {{ cookiecutter.project_slug }}.users.tasks import get_users_count
+from {{ cookiecutter.project_slug }}.users.tests.factories import UserFactory
 
 
 @pytest.mark.django_db

@@ -1,7 +1,7 @@
 import pytest
 
-from jovian_replication_manager.users.forms import UserCreationForm
-from jovian_replication_manager.users.tests.factories import UserFactory
+from {{ cookiecutter.project_slug }}.users.forms import UserCreationForm
+from {{ cookiecutter.project_slug }}.users.tests.factories import UserFactory
 
 pytestmark = pytest.mark.django_db
 

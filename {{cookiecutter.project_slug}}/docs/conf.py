@@ -1,4 +1,4 @@
-# Jovian Replication Manager documentation build configuration file, created by
+# {{ cookiecutter.project_name }} documentation build configuration file, created by
 # sphinx-quickstart.
 #
 # This file is execfile()d with the current directory set to its containing dir.
@@ -39,7 +39,7 @@ source_suffix = ".rst"
 master_doc = "index"
 
 # General information about the project.
-project = "Jovian Replication Manager"
+project = "{{ cookiecutter.project_name }}"
 copyright = """2019, Jeffrey"""
 
 # The version info for the project you're documenting, acts as replacement for
@@ -163,7 +163,7 @@ html_static_path = ["_static"]
 # html_file_suffix = None
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = "jovian_replication_managerdoc"
+htmlhelp_basename = "{{ cookiecutter.project_slug }}doc"
 
 
 # -- Options for LaTeX output --------------------------------------------------
@@ -182,8 +182,8 @@ latex_elements = {
 latex_documents = [
     (
         "index",
-        "jovian_replication_manager.tex",
-        "Jovian Replication Manager Documentation",
+        "{{ cookiecutter.project_slug }}.tex",
+        "{{ cookiecutter.project_name }} Documentation",
         """Jeffrey""",
         "manual",
     )
@@ -217,8 +217,8 @@ latex_documents = [
 man_pages = [
     (
         "index",
-        "jovian_replication_manager",
-        "Jovian Replication Manager Documentation",
+        "{{ cookiecutter.project_slug }}",
+        "{{ cookiecutter.project_name }} Documentation",
         ["""Jeffrey"""],
         1,
     )
@@ -236,10 +236,10 @@ man_pages = [
 texinfo_documents = [
     (
         "index",
-        "jovian_replication_manager",
-        "Jovian Replication Manager Documentation",
+        "{{ cookiecutter.project_slug }}",
+        "{{ cookiecutter.project_name }} Documentation",
         """Jeffrey""",
-        "Jovian Replication Manager",
+        "{{ cookiecutter.project_name }}",
         """Behold My Awesome Project!""",
         "Miscellaneous",
     )

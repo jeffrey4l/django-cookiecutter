@@ -15,8 +15,8 @@ from django.contrib.messages import constants as message_constants
 
 ROOT_DIR = (
     environ.Path(__file__) - 3
-)  # (jovian_replication_manager/config/settings/base.py - 3 = jovian_replication_manager/)
-APPS_DIR = ROOT_DIR.path("jovian_replication_manager")
+)  # ({{ cookiecutter.project_slug }}/config/settings/base.py - 3 = {{ cookiecutter.project_slug }}/)
+APPS_DIR = ROOT_DIR.path("{{ cookiecutter.project_slug }}")
 
 env = environ.Env()
 
@@ -83,7 +83,7 @@ THIRD_PARTY_APPS = [
 ]
 
 LOCAL_APPS = [
-    "jovian_replication_manager.volume",
+    "{{ cookiecutter.project_slug }}.users.apps.UsersConfig",
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -91,7 +91,7 @@ INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
 # MIGRATIONS
 # ------------------------------------------------------------------------------
 # https://docs.djangoproject.com/en/dev/ref/settings/#migration-modules
-MIGRATION_MODULES = {"sites": "jovian_replication_manager.contrib.sites.migrations"}
+# MIGRATION_MODULES = {"sites": "{{ cookiecutter.project_slug }}.contrib.sites.migrations"}
 
 # AUTHENTICATION
 # ------------------------------------------------------------------------------
@@ -196,8 +196,7 @@ TEMPLATES = [
                 "django.template.context_processors.media",
                 "django.template.context_processors.static",
                 "django.template.context_processors.tz",
-                "django.contrib.messages.context_processors.messages",
-                "jovian_replication_manager.utils.context_processors.settings_context",
+                "django.contrib.messages.context_processors.messages"
             ],
         },
     }
